@@ -18,14 +18,14 @@
 
         <div class="session-bar">
           <span id="user-status">Signed in</span>
-          <button id="logout-button" class="secondary-button" type="button">Logout</button>
+          <button id="logout-button" class="secondary-button" type="button" disabled>Logout</button>
         </div>
 
         <form id="echo-form" class="echo-form">
           <label for="message">Message</label>
           <div class="input-row">
             <input id="message" name="message" type="text" value="Hello CSRF" autocomplete="off" maxlength="500">
-            <button type="submit">Submit</button>
+            <button id="echo-button" type="submit" disabled>Submit</button>
           </div>
         </form>
 

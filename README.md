@@ -19,3 +19,5 @@ For local demo credentials, set `DEMO_USERNAME` and `DEMO_PASSWORD`. In producti
 npm test
 npm run check
 ```
+
+On Windows PowerShell, if script execution policy blocks `npm.ps1`, use `npm.cmd test` and `npm.cmd run check`.

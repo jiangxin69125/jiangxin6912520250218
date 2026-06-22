@@ -1,6 +1,7 @@
 const loginForm = document.querySelector('#login-form');
 const usernameInput = document.querySelector('#username');
 const passwordInput = document.querySelector('#password');
+const loginButton = document.querySelector('#login-button');
 const loginStatus = document.querySelector('#login-status');
 
 let csrfToken = '';
@@ -56,5 +57,8 @@ loginForm.addEventListener('submit', async (event) => {
 });
 
 fetchCsrfToken()
-  .then(() => setLoginStatus('Ready to login', 'ready'))
+  .then(() => {
+    loginButton.disabled = false;
+    setLoginStatus('Ready to login', 'ready');
+  })
   .catch((error) => setLoginStatus(error.message, 'error'));

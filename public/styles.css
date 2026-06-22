@@ -125,6 +125,11 @@ button:hover {
   background: #24584d;
 }
 
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
 .secondary-button {
   border: 1px solid #b9c7c2;
   color: #24332f;

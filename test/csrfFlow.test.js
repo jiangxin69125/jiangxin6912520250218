@@ -51,6 +51,34 @@ test('serves browser login page', async () => {
   }
 });
 
+test('browser forms start disabled until csrf token is ready', async () => {
+  const server = app.listen(0);
+  const { port } = server.address();
+  const baseUrl = `http://127.0.0.1:${port}`;
+
+  try {
+    const loginResponse = await fetch(`${baseUrl}/`);
+    const loginBody = await loginResponse.text();
+
+    assert.equal(loginResponse.status, 200);
+    assert.match(loginBody, /id="login-button" type="submit" disabled/);
+
+    const { cookie } = await login(baseUrl);
+    const demoResponse = await fetch(`${baseUrl}/demo`, {
+      headers: { cookie },
+    });
+    const demoBody = await demoResponse.text();
+
+    assert.equal(demoResponse.status, 200);
+    assert.match(demoBody, /id="echo-button" type="submit" disabled/);
+    assert.match(demoBody, /id="logout-button" class="secondary-button" type="button" disabled/);
+  } finally {
+    await new Promise((resolve, reject) => {
+      server.close((error) => (error ? reject(error) : resolve()));
+    });
+  }
+});
+
 test('csrf token cookie and header allow authenticated echo requests', async () => {
   const server = app.listen(0);
   const { port } = server.address();

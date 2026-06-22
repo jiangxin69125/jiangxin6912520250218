@@ -4,6 +4,7 @@ const tokenStatus = document.querySelector('#token-status');
 const responseStatus = document.querySelector('#response-status');
 const userStatus = document.querySelector('#user-status');
 const logoutButton = document.querySelector('#logout-button');
+const echoButton = document.querySelector('#echo-button');
 
 let csrfToken = '';
 
@@ -28,6 +29,8 @@ async function fetchCsrfToken() {
 
   const data = await response.json();
   csrfToken = data.csrfToken;
+  echoButton.disabled = false;
+  logoutButton.disabled = false;
   setStatus(tokenStatus, `${csrfToken.slice(0, 12)}...`, 'ready');
 }
 
