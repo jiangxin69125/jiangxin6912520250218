@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login - CSRF Echo Demo</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/login.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="demo-panel" aria-labelledby="page-title">
+        <div class="panel-heading">
+          <p class="eyebrow">Protected demo</p>
+          <h1 id="page-title">Login required</h1>
+          <p class="summary">Use the demo credentials, then verify the protected CSRF echo flow.</p>
+        </div>
+
+        <form id="login-form" class="echo-form">
+          <label for="username">Username</label>
+          <input id="username" name="username" type="text" value="admin" autocomplete="username">
+
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" value="password" autocomplete="current-password">
+
+          <button type="submit">Login</button>
+        </form>
+
+        <dl class="status-grid one-column">
+          <div>
+            <dt>Status</dt>
+            <dd id="login-status">Waiting for login</dd>
+          </div>
+        </dl>
+      </section>
+    </main>
+  </body>
+</html>

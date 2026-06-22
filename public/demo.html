@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CSRF Echo Demo</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="demo-panel" aria-labelledby="page-title">
+        <div class="panel-heading">
+          <p class="eyebrow">Authenticated CSRF flow</p>
+          <h1 id="page-title">/csrf-token + /echo</h1>
+          <p class="summary">The page fetches a CSRF token, keeps HttpOnly cookies in the browser, and renders responses as text to prevent reflected XSS.</p>
+        </div>
+
+        <div class="session-bar">
+          <span id="user-status">Signed in</span>
+          <button id="logout-button" class="secondary-button" type="button">Logout</button>
+        </div>
+
+        <form id="echo-form" class="echo-form">
+          <label for="message">Message</label>
+          <div class="input-row">
+            <input id="message" name="message" type="text" value="Hello CSRF" autocomplete="off" maxlength="500">
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+
+        <dl class="status-grid">
+          <div>
+            <dt>Token</dt>
+            <dd id="token-status">Fetching...</dd>
+          </div>
+          <div>
+            <dt>Cookie</dt>
+            <dd>Sent by the browser as HttpOnly same-site cookies</dd>
+          </div>
+          <div>
+            <dt>Response</dt>
+            <dd id="response-status">Waiting for submit</dd>
+          </div>
+        </dl>
+      </section>
+    </main>
+  </body>
+</html>
