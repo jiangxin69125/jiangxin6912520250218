@@ -27,3 +27,18 @@ Used ideas:
 - record provenance and project decisions
 - treat integrity checks as part of the workflow
 - route security-sensitive reports away from public issues
+
+## mattpocock/skills
+
+Integrated skills:
+
+- stable engineering workflow skills
+- stable productivity workflow skills
+
+Skipped:
+
+- `deprecated/`
+- `in-progress/`
+- `personal/`
+- Claude-specific git guardrails
+- narrow setup/migration helpers

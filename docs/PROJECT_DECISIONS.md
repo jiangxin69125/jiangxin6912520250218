@@ -33,3 +33,9 @@ Reason: Network calls should have a timeout, host allowlist, local/private host 
 Decision: Run `npm audit --omit=dev` through `scripts/audit.js` in the project check script.
 
 Reason: The application currently has no development dependencies. Auditing production dependencies keeps the network call smaller and avoids extra npm work while preserving the relevant deployment security check. The wrapper calls `npm.cmd` on Windows to avoid shell resolution problems with PowerShell execution policies.
+
+### Install only stable Matt Pocock skills
+
+Decision: Add the stable engineering and productivity skills from `mattpocock/skills` to `.codex/skills`.
+
+Reason: These skills complement the existing Ponytail workflow without replacing it. Deprecated, in-progress, personal, Claude-specific, and narrow migration/setup helpers are excluded to keep the repo skill set small.
