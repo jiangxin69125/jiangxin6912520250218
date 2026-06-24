@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: my-github-project
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm ci
+    startCommand: npm start
+    branch: feat/express-hello-world
+    autoDeploy: true
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: CSRF_SECRET
+        generateValue: true
+      - key: DEMO_USERNAME
+        sync: false
+      - key: DEMO_PASSWORD
+        sync: false
