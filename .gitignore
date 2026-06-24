@@ -25,6 +25,9 @@
 *.log
 *.sql
 *.sqlite
+.npm-cache/
+.pnpm-store/
+.tmp/
 
 # OS generated files #
 ######################
