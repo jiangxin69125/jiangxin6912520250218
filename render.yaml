@@ -6,7 +6,7 @@ services:
     region: oregon
     buildCommand: npm ci
     startCommand: npm start
-    branch: feat/express-hello-world
+    branch: codex/web-access-render
     autoDeploy: true
     healthCheckPath: /health
     envVars:
